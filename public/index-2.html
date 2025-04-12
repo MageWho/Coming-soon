@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0a0a0a;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .loader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: tvCycle 6s ease-in-out infinite;
+    }
+
+    .text, .loading-bar-container {
+      animation: tvOff 6s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .text {
+      font-weight: bold;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .loading-bar-container {
+      width: 200px;
+      height: 6px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .loading-bar {
+      height: 100%;
+      background-color: white;
+      width: 0%;
+      animation: load 6s ease-in-out infinite;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes load {
+      0% { width: 0%; }
+      60% { width: 85%; }
+      70% { width: 0%; }
+      100% { width: 0%; }
+    }
+
+    @keyframes tvOff {
+      0%, 60% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+      70% {
+        transform: scaleY(0.1);
+        opacity: 0.8;
+      }
+      80% {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes tvCycle {
+      0%, 80% { opacity: 1; }
+      90% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="text">loading</div>
+    <div class="loading-bar-container">
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+</body>
+</html>
